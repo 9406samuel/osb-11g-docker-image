@@ -1,1 +1,1 @@
-Intento de reunir todos los dockerfile y crear uno solo, pero hay un error aun desconocido
+Full dockerfile to create an weblogic 10.3.6 container
