@@ -1,0 +1,22 @@
+node('weblogic-container') {
+   
+   stage('Initializing WebLogic server'){
+       sh '/root/Oracle/Middleware/user_projects/domains/base_domain/bin/startWebLogic.sh &'
+   }
+   
+   stage('Getting git source files') {
+       git 'https://github.com/9406samuel/Parametrization-Jenkins-pipeline-sources.git'
+   }
+
+   stage('Generating .jar file') {
+      // Run the maven build
+      if (isUnix()) {
+         sh 'mvn verify -Dweblogic.home=/root/Oracle/Middleware/wlserver_10.3 -Dosb.home=/root/Oracle/Middleware/Oracle_OSB1'
+      }
+     
+    stage('OSB configurator build')
+      //sh 'chmod -R 770 /root/Oracle/Middleware/Oracle_OSB1'
+      sh 'cd /home/weblogic/workspace/parametrizationPipeline/configurator_tool && chmod -R 770 * && ./osbCustomizer.sh sbconfig.properties'
+   }
+   
+}
