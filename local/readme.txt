@@ -1,1 +1,5 @@
-Intento de reunir todos los dockerfile y crear uno solo, pero hay un error aun desconocido
+Primera versión del Dockerfile. Se debe tener una carpeta en el directorio raiz llamada "osb11_sources" el cual debe contener los instaladores de weblogic, OEPE y OSB 11g.
+- osb_sources
+  - oepe-indigo-all-in-one-11.1.1.8.0.201110211138-linux-gtk-x86_64.zip
+  - ofm_osb_generic_11.1.1.7.0_disk1_1of1.zip
+  - wls1036_generic.jar
